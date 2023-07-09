@@ -25,6 +25,6 @@ public class Owner extends BasicPersonalData implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Pet> pets;
 
-    @OneToMany(mappedBy = "vet", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Appointment> appointments;
 }
