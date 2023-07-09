@@ -12,16 +12,16 @@ import java.util.List;
 @Setter
 @Entity
 @Table(schema = "vetapp")
-public class Pet {
+public class Pet extends BaseEntity{
 
     private String name;
     private Date birthDay;
     private TypePet typePet;
     private String race;
 
-    @ManyToMany(mappedBy = "pet")
+    @ManyToMany(mappedBy = "pets")
     private List<Owner> owners;
 
-    @OneToMany(mappedBy = "vet", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pet", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Appointment> appointments;
 }
