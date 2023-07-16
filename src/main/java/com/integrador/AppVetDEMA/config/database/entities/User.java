@@ -2,14 +2,14 @@ package com.integrador.AppVetDEMA.config.database.entities;
 
 import com.integrador.AppVetDEMA.config.database.entities.types.UserType;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(schema = "vetapp")
 public class User extends BaseEntity implements Serializable {
