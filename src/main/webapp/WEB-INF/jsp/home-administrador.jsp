@@ -23,13 +23,13 @@
                <a class="nav-link" href="/citas">Citas</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="#">Mascotas</a>
+               <a class="nav-link" href="/mascotas">Mascotas</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="#">Inventario</a>
+               <a class="nav-link" href="/inventario">Inventario</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="#">Tienda</a>
+               <a class="nav-link" href="/store">Tienda</a>
              </li>
            </ul>
          </div>

@@ -1,5 +1,8 @@
 package com.integrador.AppVetDEMA.controller;
 
+import com.integrador.AppVetDEMA.config.database.entities.Appointment;
+import com.integrador.AppVetDEMA.config.database.entities.Pet;
+import com.integrador.AppVetDEMA.config.database.entities.Product;
 import com.integrador.AppVetDEMA.config.database.entities.User;
 import com.integrador.AppVetDEMA.config.database.entities.types.UserType;
 import com.integrador.AppVetDEMA.service.HomeService;
@@ -63,6 +66,54 @@ public class HomeController {
         homeService.createUser(user);
 
         return "redirect:/users";
+
+    }
+
+    @GetMapping("/citas")
+    public String citasList(Model model) {
+        model.addAttribute("citasList", homeService.getAllAppointment());
+
+        return "citas";
+
+    }
+
+    @PostMapping("/citas/create")
+    public String createAppointment(@Validated @ModelAttribute("appointment") Appointment appointment, BindingResult result, ModelMap model) {
+        homeService.createAppointment(appointment);
+
+        return "redirect:/citas";
+
+    }
+
+    @GetMapping("/mascotas")
+    public String petsList(Model model) {
+        model.addAttribute("petsList", homeService.getAllPets());
+
+        return "mascotas";
+
+    }
+
+    @PostMapping("/mascotas/create")
+    public String createPet(@Validated @ModelAttribute("pet") Pet pet, BindingResult result, ModelMap model) {
+        homeService.createPet(pet);
+
+        return "redirect:/mascotas";
+
+    }
+
+    @GetMapping("/inventario")
+    public String productsList(Model model) {
+        model.addAttribute("productsLists", homeService.getAllProducts());
+
+        return "inventario";
+
+    }
+
+    @PostMapping("/inventario/create")
+    public String createProduct(@Validated @ModelAttribute("product") Product product, BindingResult result, ModelMap model) {
+        homeService.createProduct(product);
+
+        return "redirect:/inventario";
 
     }
 }

@@ -24,7 +24,11 @@
           </div>
           <div class="form-group">
             <label for="documentType">Tipo Documento:</label>
-            <form:input path="employee.documentType" type="text" class="form-control" id="documentType"/>
+            <form:select  path="employee.documentType" class="form-control" id="documentType">
+                <form:option value="DNI">DNI</form:option>
+                <form:option value="CE">CE</form:option>
+                <form:option value="PASAPORTE">Pasaporte</form:option>
+            </form:select>
           </div>
           <div class="form-group">
             <label for="documentNumber">Numero Documento:</label>
@@ -44,7 +48,12 @@
                     </div>
                     <div class="form-group">
                       <label for="employeeType">Tipo Empleado:</label>
-                      <form:input path="employee.employeeType" type="text" class="form-control" id="employeeType"/>
+                      <form:select  path="employee.employeeType" class="form-control" id="employeeType">
+                         <form:option value="ADMINISTRADOR">Administrador</form:option>
+                         <form:option value="VETERINARIO">Veterinario</form:option>
+                         <form:option value="ASISTENTE">Asistente</form:option>
+                         <form:option value="CAJERO">Cajero</form:option>
+                      </form:select>
                     </div>
                     <div class="form-group">
                       <label for="admissionDate">Fecha Admision:</label>
@@ -60,7 +69,11 @@
                     </div>
                     <div class="form-group">
                       <label for="userType">Tipo de Usuario:</label>
-                      <form:input path="userType" type="text" class="form-control" id="userType"/>
+                      <form:select  path="userType" class="form-control" id="userType">
+                        <form:option value="ADMINISTRADOR">Administrador</form:option>
+                        <form:option value="VETERINARIO">Veterinario</form:option>
+                        <form:option value="USUARIO">Usuario</form:option>
+                      </form:select>
                     </div>
 
           <button type="submit" class="btn btn-primary btn-block">Crear Usuario</button>
