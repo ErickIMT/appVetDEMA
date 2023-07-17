@@ -1,9 +1,6 @@
 package com.integrador.AppVetDEMA.controller;
 
-import com.integrador.AppVetDEMA.config.database.entities.Appointment;
-import com.integrador.AppVetDEMA.config.database.entities.Pet;
-import com.integrador.AppVetDEMA.config.database.entities.Product;
-import com.integrador.AppVetDEMA.config.database.entities.User;
+import com.integrador.AppVetDEMA.config.database.entities.*;
 import com.integrador.AppVetDEMA.config.database.entities.types.UserType;
 import com.integrador.AppVetDEMA.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -115,5 +112,15 @@ public class HomeController {
 
         return "redirect:/inventario";
 
+    }
+
+    @PostMapping("/tienda/create")
+    public String createSale(@Validated @ModelAttribute("salesDocument") SalesDocument salesDocument, BindingResult result, ModelMap model) {
+        return null;
+    }
+
+    @GetMapping({"/tienda-form"})
+    public ModelAndView tienda() {
+        return new ModelAndView("tienda-form", "salesDocument", new SalesDocument());
     }
 }

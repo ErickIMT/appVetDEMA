@@ -82,4 +82,8 @@ public class HomeService {
         productRepository.save(product);
     }
 
+    public void createSales() {
+
+    }
+
 }

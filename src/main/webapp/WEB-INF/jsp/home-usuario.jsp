@@ -23,7 +23,7 @@
                <a class="nav-link" href="/citas">Citas</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="/store">Tienda</a>
+               <a class="nav-link" href="/tienda-form">Tienda</a>
              </li>
            </ul>
          </div>
