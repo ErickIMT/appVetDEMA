@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(schema = "vetapp")
-public class Pet extends BaseEntity{
+public class Pet extends BaseEntity {
 
     private String name;
     private Date birthDay;

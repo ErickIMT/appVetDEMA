@@ -53,7 +53,7 @@ public class RegisterController {
 
 
     @PostMapping("/owner")
-    public void saveOwner (@RequestBody Owner owner) {
+    public void saveOwner(@RequestBody Owner owner) {
         ownerRepository.save(owner);
     }
 

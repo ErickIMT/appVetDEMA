@@ -7,8 +7,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication(scanBasePackages = "com.integrador.AppVetDEMA")
 public class AppVetDemaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AppVetDemaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AppVetDemaApplication.class, args);
+    }
 
 }

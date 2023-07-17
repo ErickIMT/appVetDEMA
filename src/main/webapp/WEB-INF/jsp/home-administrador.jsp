@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Página de inicio de sesión</title>
+  <title>Home - Admin</title>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
@@ -17,10 +17,10 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
            <ul class="navbar-nav mr-auto">
              <li class="nav-item">
-               <a class="nav-link" href="#">Usuarios</a>
+               <a class="nav-link" href="/users">Usuarios</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="#">Citas</a>
+               <a class="nav-link" href="/citas">Citas</a>
              </li>
              <li class="nav-item">
                <a class="nav-link" href="#">Mascotas</a>

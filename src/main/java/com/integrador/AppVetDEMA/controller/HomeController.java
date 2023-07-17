@@ -5,6 +5,7 @@ import com.integrador.AppVetDEMA.config.database.entities.types.UserType;
 import com.integrador.AppVetDEMA.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -19,7 +20,7 @@ public class HomeController {
     @Autowired
     private HomeService homeService;
 
-    @GetMapping({"/","/login"})
+    @GetMapping({"/", "/login"})
     public ModelAndView index() {
         return new ModelAndView("index", "user", new User());
     }
@@ -29,7 +30,7 @@ public class HomeController {
 
         UserType userType = homeService.login(user);
 
-        switch(userType) {
+        switch (userType) {
             case ADMINISTRADOR:
                 return "home-administrador";
             case USUARIO:
@@ -44,4 +45,24 @@ public class HomeController {
 
     }
 
+    @GetMapping("/users")
+    public String usersList(Model model) {
+        model.addAttribute("usersList", homeService.getAllUSers());
+
+        return "users";
+
+    }
+
+    @GetMapping("/users/form")
+    public ModelAndView userForm() {
+        return new ModelAndView("user-form", "user", new User());
+    }
+
+    @PostMapping("/users/create")
+    public String createUser(@Validated @ModelAttribute("user") User user, BindingResult result, ModelMap model) {
+        homeService.createUser(user);
+
+        return "redirect:/users";
+
+    }
 }

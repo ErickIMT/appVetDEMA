@@ -3,12 +3,14 @@ package com.integrador.AppVetDEMA.config.database.entities;
 import com.integrador.AppVetDEMA.config.database.entities.types.DocumentType;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
-public class BasicPersonalData extends BaseEntity{
+@Data
+@MappedSuperclass
+public class BasicPersonalData extends BaseEntity {
 
     private String name;
     private String lastName;
