@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Usuarios</title>
+  <title>Citas</title>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
@@ -11,7 +11,7 @@
 <body>
 
   <div class="container">
-    <h2>Usuarios</h2>
+    <h2>Citas</h2>
     <table class="table">
         <tr>
           <th>Fecha</th>

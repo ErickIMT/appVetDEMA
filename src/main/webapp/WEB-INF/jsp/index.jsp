@@ -14,14 +14,14 @@
       <div class="col-md-6">
         <h2 class="text-center">Iniciar sesión</h2>
         <h2 class="text-center">${message}</h2>
-        <form:form method="POST" action="/login" modelAttribute="user">
+        <form:form method="POST" action="login" modelAttribute="user">
           <div class="form-group">
             <label for="username">Usuario:</label>
-            <form:input path="username" type="text" class="form-control" id="username" placeholder="Ingrese su nombre de usuario"/>
+            <form:input path="username" name='username' type="text" class="form-control" id="username" placeholder="Ingrese su nombre de usuario"/>
           </div>
           <div class="form-group">
             <label for="password">Contraseña:</label>
-            <form:input path="password" type="password" class="form-control" id="password" placeholder="Ingrese su contraseña"/>
+            <form:input path="password" name='password' type="password" class="form-control" id="password" placeholder="Ingrese su contraseña"/>
           </div>
           <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
         </form:form>

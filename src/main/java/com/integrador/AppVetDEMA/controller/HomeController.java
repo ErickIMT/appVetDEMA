@@ -82,6 +82,15 @@ public class HomeController {
 
     }
 
+    @GetMapping("/citas/form")
+    public String citasForm(Model model) {
+        model.addAttribute("vetList", homeService.getallVet());
+        model.addAttribute("petList", homeService.getAllPets());
+        model.addAttribute("appointment", new Appointment());
+
+        return "cita-form";
+    }
+
     @GetMapping("/mascotas")
     public String petsList(Model model) {
         model.addAttribute("petsList", homeService.getAllPets());
@@ -98,12 +107,26 @@ public class HomeController {
 
     }
 
+    @GetMapping("/mascotas/form")
+    public String mascotasForm(Model model) {
+        model.addAttribute("pet", new Pet());
+
+        return "mascotas-form";
+    }
+
     @GetMapping("/inventario")
     public String productsList(Model model) {
         model.addAttribute("productsLists", homeService.getAllProducts());
 
         return "inventario";
 
+    }
+
+    @GetMapping("/inventario/form")
+    public String inventarioForm(Model model) {
+        model.addAttribute("product", new Product());
+
+        return "inventario-form";
     }
 
     @PostMapping("/inventario/create")

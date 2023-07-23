@@ -1,12 +1,14 @@
 package com.integrador.AppVetDEMA.service;
 
 import com.integrador.AppVetDEMA.config.database.entities.*;
+import com.integrador.AppVetDEMA.config.database.entities.types.EmployeeType;
 import com.integrador.AppVetDEMA.config.database.entities.types.UserType;
 import com.integrador.AppVetDEMA.config.database.jpa.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class HomeService {
@@ -25,6 +27,9 @@ public class HomeService {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private VetRepository vetRepository;
 
     public UserType login(User user) {
         User u = userRepository.findByUsername(user.getUsername());
@@ -56,6 +61,10 @@ public class HomeService {
 
         employeeRepository.save(employee);
 
+    }
+
+    public List<Vet> getallVet() {
+        return vetRepository.findAll();
     }
 
     public List<Appointment> getAllAppointment() {

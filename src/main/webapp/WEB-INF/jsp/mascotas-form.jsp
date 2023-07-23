@@ -20,12 +20,11 @@
           </div>
           <div class="form-group">
             <label for="birthday">Fecha Nacimiento:</label>
-            <form:input path="birthday" type="text" class="form-control" id="birthday"/>
+            <form:input path="birthDay" type="date" class="form-control" id="birthday"/>
           </div>
           <div class="form-group">
             <label for="typePet">Tipo de Mascota:</label>
                     <div class="form-group">
-                      <label for="typePet">Tipo de Usuario:</label>
                       <form:select  path="typePet" class="form-control" id="typePet">
                         <form:option value="PERRO">Perro</form:option>
                         <form:option value="GATO">Gato</form:option>
