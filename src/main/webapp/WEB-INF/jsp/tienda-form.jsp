@@ -21,8 +21,17 @@
                 <form:option value="FACTURA">Factura</form:option>
                </form:select>
           </div>
+          <div class="form-group">
             <label for="nameClient">Cliente:</label>
             <form:input path="nameClient" type="text" class="form-control" id="nameClient"/>
+          </div>
+          <div class="form-group">
+            <label for="product">Productos:</label>
+              <form:select path="sales[0].product" class="form-control" id="product">
+               <c:forEach var="product" items="${productList}">
+                 <form:option value="${product.id}">${product.name}</form:option>
+               </c:forEach>
+              </form:select>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block">Guardar Venta</button>
@@ -31,26 +40,7 @@
     </div>
   </div>
 
-  <div class="container">
-      <h2>Lista de productos</h2>
-
-      <%-- Formulario para agregar productos --%>
-      <form method="post" action="guardarProductos.jsp">
-        <div class="form-group">
-          <label for="nombre">Nombre del producto:</label>
-          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre del producto">
-        </div>
-        <div class="form-group">
-          <label for="precio">Precio:</label>
-          <input type="number" class="form-control" id="precio" name="precio" placeholder="Ingrese el precio del producto">
-        </div>
-        <div class="form-group">
-          <label for="cantidad">Cantidad:</label>
-          <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Ingrese Cantidad del producto">
-        </div>
-        <button type="submit" class="btn btn-primary">Agregar</button>
-      </form>
-
+    <div class="container">
       <%-- Lista de productos agregados --%>
       <h3>Productos agregados:</h3>
       <table class="table">

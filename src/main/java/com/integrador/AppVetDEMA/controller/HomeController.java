@@ -168,7 +168,10 @@ public class HomeController {
     }
 
     @GetMapping({"/tienda-form"})
-    public ModelAndView tienda() {
-        return new ModelAndView("tienda-form", "salesDocument", new SalesDocument());
+    public String tienda(Model model) {
+        model.addAttribute("salesDocument", new SalesDocument());
+        model.addAttribute("productList", homeService.getAllProducts());
+
+        return "tienda-form";
     }
 }
