@@ -27,7 +27,7 @@
             <form:input path="quantity" type="text" class="form-control" id="quantity"/>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-block">Crear Product</button>
+          <button type="submit" class="btn btn-primary btn-block">Crear Producto</button>
         </form:form>
       </div>
     </div>

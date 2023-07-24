@@ -18,31 +18,24 @@
         <form:form method="POST" action="/citas/create" modelAttribute="appointment">
           <div class="form-group">
             <label for="date">Fecha:</label>
-            <form:input path="date" type="date" class="form-control" id="date"/>
+            <form:input path="date" name="date" type="datetime-local" class="form-control" id="date"/>
           </div>
           <div class="form-group">
             <label for="vet">Veterinario:</label>
-              <c:forEach var="vet" items="${vetList}">
-                <tr>
-                  <td>${cita.date}</td>
-                  <td>${cita.vet.name} ${cita.vet.lastName}</td>
-                  <td>${cita.pet.name}</td>
-                  <td>${cita.owner[0].name} ${cita.owner.lastName}</td>
-                  <td>${cita.owner[0].phoneNumber}</td>
-                  <td>${cita.owner[0].address}</td>
-                </tr>
+              <form:select path="vet" class="form-control" id="vet">
+               <c:forEach var="vet" items="${vetList}">
+                 <form:option value="${vet}">${vet.name} ${vet.lastName}</form:option>
                </c:forEach>
-            <form:input path="vet.id" type="text" class="form-control" id="vet"/>
+              </form:select>
           </div>
           <div class="form-group">
             <label for="pet">Mascota:</label>
-            <form:input path="pet.id" type="text" class="form-control" id="pet"/>
+              <form:select path="pet" class="form-control" id="vet">
+               <c:forEach var="pet" items="${petList}">
+                 <form:option value="${pet}">${pet.name}</form:option>
+               </c:forEach>
+              </form:select>
           </div>
-          <div class="form-group">
-            <label for="owner">Dueño:</label>
-            <form:input path="owner.id" type="text" class="form-control" id="owner"/>
-          </div>
-
           <button type="submit" class="btn btn-primary btn-block">Crear Cita</button>
         </form:form>
       </div>

@@ -4,6 +4,7 @@ import com.integrador.AppVetDEMA.config.database.entities.types.TypePet;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,8 @@ import java.util.List;
 public class Pet extends BaseEntity {
 
     private String name;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date birthDay;
     private TypePet typePet;
     private String race;

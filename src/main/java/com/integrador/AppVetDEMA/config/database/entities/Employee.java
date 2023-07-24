@@ -4,6 +4,7 @@ import com.integrador.AppVetDEMA.config.database.entities.types.EmployeeType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -21,6 +22,8 @@ public class Employee extends BasicPersonalData implements Serializable {
     private String profession;
     @Enumerated(EnumType.STRING)
     private EmployeeType employeeType;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date admissionDate;
 
     @OneToOne

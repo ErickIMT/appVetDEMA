@@ -26,9 +26,9 @@
           <td>${cita.date}</td>
           <td>${cita.vet.name} ${cita.vet.lastName}</td>
           <td>${cita.pet.name}</td>
-          <td>${cita.owner[0].name} ${cita.owner.lastName}</td>
-          <td>${cita.owner[0].phoneNumber}</td>
-          <td>${cita.owner[0].address}</td>
+          <td>${cita.owner.name} ${cita.owner.lastName}</td>
+          <td>${cita.owner.phoneNumber}</td>
+          <td>${cita.owner.address}</td>
         </tr>
        </c:forEach>
     </table>

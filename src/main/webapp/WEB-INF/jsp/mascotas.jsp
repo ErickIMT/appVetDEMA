@@ -19,10 +19,9 @@
           <th>Tipo</th>
           <th>Raza</th>
         </tr>
-      <c:forEach var="pet" items="${petsLists}">
+      <c:forEach var="pet" items="${petsList}">
         <tr>
           <td>${pet.name}</td>
-          <td>${cita.vet.name} ${cita.vet.lastName}</td>
           <td>${pet.birthDay}</td>
           <td>${pet.typePet}</td>
           <td>${pet.race}</td>

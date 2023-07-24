@@ -3,6 +3,7 @@ package com.integrador.AppVetDEMA.config.database.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -20,6 +21,8 @@ public class Vet extends BasicPersonalData implements Serializable {
 
     private String speciality;
     private String university;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date graduationDate;
 
     @OneToMany(mappedBy = "vet", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

@@ -1,0 +1,41 @@
+@startuml
+
+class HomeService
+class HomeController{
+ModelAndView index()
+String login()
+String usersList()
+ModelAndView userForm()
+String createUser()
+String citasList()
+String createAppointment()
+String citasForm()
+String petsList()
+String createPet()
+String productsList()
+String createProduct()
+String createSale()
+ModelAndView tienda()
+}
+class RegisterController{
+Pet getPetById()
+void savePet()
+List<Owner> getAllOwners()
+Owner getOwnerById()
+void saveOwner()
+}
+class StoreController{
+List<Product> getAllProduct()
+Product getProductById()
+void saveProduct()
+void updateProduct()
+List<SalesDocument> getAllSalesDocument()
+SalesDocument getSaleDocumentById()
+void saveSalesDocument()
+}
+
+HomeController -> HomeService
+RegisterController -> HomeService
+StoreController -> HomeService
+
+@enduml

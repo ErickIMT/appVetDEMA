@@ -57,7 +57,7 @@
                     </div>
                     <div class="form-group">
                       <label for="admissionDate">Fecha Admision:</label>
-                      <form:input path="employee.admissionDate" type="text" class="form-control" id="admissionDate"/>
+                      <form:input path="employee.admissionDate" type="date" class="form-control" id="admissionDate"/>
           </div>
           <div class="form-group">
                       <label for="username">Usuario:</label>

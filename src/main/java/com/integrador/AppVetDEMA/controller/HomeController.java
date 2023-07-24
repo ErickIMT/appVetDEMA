@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,6 +30,11 @@ public class HomeController {
     public String login(@Validated @ModelAttribute("user") User user, BindingResult result, ModelMap model) {
 
         UserType userType = homeService.login(user);
+
+        if(userType == null) {
+            model.addAttribute("message", "Usuario o Password Erroneo");
+            return "index";
+        }
 
         switch (userType) {
             case ADMINISTRADOR:
@@ -78,6 +84,8 @@ public class HomeController {
     public String createAppointment(@Validated @ModelAttribute("appointment") Appointment appointment, BindingResult result, ModelMap model) {
         homeService.createAppointment(appointment);
 
+        System.out.println(appointment.getDate());
+
         return "redirect:/citas";
 
     }
@@ -101,9 +109,9 @@ public class HomeController {
 
     @PostMapping("/mascotas/create")
     public String createPet(@Validated @ModelAttribute("pet") Pet pet, BindingResult result, ModelMap model) {
-        homeService.createPet(pet);
+        Long id = homeService.createPet(pet);
 
-        return "redirect:/mascotas";
+        return "redirect:/owner/form/"+id;
 
     }
 
@@ -112,6 +120,23 @@ public class HomeController {
         model.addAttribute("pet", new Pet());
 
         return "mascotas-form";
+    }
+
+    @GetMapping("/owner/form/{id}")
+    public String ownerForm(@PathVariable Long id, Model model) {
+        model.addAttribute("owner", new Owner());
+        model.addAttribute("petId",id);
+
+        return "owner-form";
+    }
+
+    @PostMapping("/owner/create/{id}")
+    public String createOwner(@PathVariable Long id,@Validated @ModelAttribute("owner") Owner owner, BindingResult result, ModelMap model) {
+
+        homeService.createOwner(owner,id);
+
+        return "redirect:/mascotas";
+
     }
 
     @GetMapping("/inventario")
