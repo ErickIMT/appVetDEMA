@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,6 +26,9 @@ public class Employee extends BasicPersonalData implements Serializable {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date admissionDate;
+
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<SalesDocument>  salesDocuments;
 
     @OneToOne
     @JoinColumn(name = "userId")

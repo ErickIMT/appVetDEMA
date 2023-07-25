@@ -22,6 +22,9 @@ public class Pet extends BaseEntity {
     private TypePet typePet;
     private String race;
 
+    @OneToMany(mappedBy = "pet", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<SalesDocument>  salesDocuments;
+
     @ManyToMany(mappedBy = "pets")
     private List<Owner> owners;
 

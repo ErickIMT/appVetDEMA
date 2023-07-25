@@ -22,6 +22,12 @@ public class SalesDocument extends BaseEntity implements Serializable {
     private SalesDocumentType salesDocumentType;
     private String salesDocumentNumber;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Employee employee;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Pet pet;
+
     @OneToMany(mappedBy = "salesDocument", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Sales> sales;
     private float total;

@@ -35,6 +35,12 @@ public class HomeService {
     @Autowired
     private OwnerRepository ownerRepository;
 
+    @Autowired
+    private SalesDocumentRepository salesDocumentRepository;
+
+    @Autowired
+    private SalesRepository salesRepository;
+
     public UserType login(User user) {
         User u = userRepository.findByUsername(user.getUsername());
         if (u != null) {
@@ -109,7 +115,13 @@ public class HomeService {
         ownerRepository.save(owner);
     }
 
-    public void createSales() {
+    public void createSales(SalesDocument salesDocument, List<Sales> sales) {
+        SalesDocument SalesDocumentSaved = salesDocumentRepository.save(salesDocument);
+
+        sales.forEach(s -> {
+            s.setSalesDocument(SalesDocumentSaved);
+            salesRepository.save(s);
+        });
 
     }
 
